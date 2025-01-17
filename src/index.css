@@ -1,0 +1,22 @@
+main{
+  width:3in;
+  height:5in;
+  background:darkblue;
+  display:grid;
+  place-content: center;
+  font-family: sans-serif;
+}
+.card{
+  width:2in;
+  height:4in;
+  border-radius: 10px;
+  background:white;
+  padding:20px;
+}
+.avatar{
+  width:100%;
+}
+.favorite{
+  width:20px;
+  cursor: pointer;
+}
