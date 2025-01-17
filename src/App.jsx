@@ -1,5 +1,6 @@
 import {useState} from 'react'
-function App() {
+
+export default function App() {
   const [contact, setContact] = useState({
     firstName:'John',
     lastName:'Doe',
@@ -8,37 +9,40 @@ function App() {
     isFavorite: false
   })
 
+  let starIcon = contact.isFavorite ? 'star-filled.png' : 'star-empty.png'
+  let starAlt = contact.isFavorite ? 'filled star icon' : 'empty star icon'
+
   function toggleFavorite(){
     alert('Toggle Favorite')
   }
+
   return (
     <main>
       <article className='card'>
         <img  src='user.png' 
-              alt='User profile pic of John Doe'
+              alt={`User profile pic of ${contact.firstName} ${contact.lastName}`}
               className='avatar' 
         />
         <div className='info'>
           <button
               onClick={toggleFavorite}
-              aria-pressed={false}
+              aria-pressed={contact.isFavorite}
+              aria-label={contact.isFavorite ? 'Remove from favorites' : 'Add to favorites'}
               className='favorite-button'
           >
-            <img  src='star-empty.png' 
-                  alt='empty star icon'
+            <img  src = {starIcon} 
+                  alt={starAlt}
                   className='favorite'
             />
 
           </button>
           <h2 className='name'>
-            John Doe
+            {contact.firstName} {contact.lastName}
           </h2>
-          <p className='phone'>702-555-1212</p>
-          <p className='email'>name@example.com</p>
+          <p className='phone'>{contact.phone}</p>
+          <p className='email'>{contact.email}</p>
         </div>
       </article>
     </main>
   )
 }
-
-export default App
