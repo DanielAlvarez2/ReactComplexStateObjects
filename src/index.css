@@ -17,6 +17,14 @@ main{
   width:100%;
 }
 .favorite{
-  width:20px;
+  width:30px;
   cursor: pointer;
+}
+button{
+  width:30px;
+  height:30px;
+  display: grid;
+  place-content: center;
+  border: none;
+  background: transparent;
 }

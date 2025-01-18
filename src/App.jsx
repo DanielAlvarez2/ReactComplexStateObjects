@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 export default function App() {
+  
   const [contact, setContact] = useState({
     firstName:'John',
     lastName:'Doe',
@@ -13,7 +14,10 @@ export default function App() {
   let starAlt = contact.isFavorite ? 'filled star icon' : 'empty star icon'
 
   function toggleFavorite(){
-    alert('Toggle Favorite')
+    setContact(prevContact=>({
+      ...prevContact,
+      isFavorite:!prevContact.isFavorite
+    }))  
   }
 
   return (
